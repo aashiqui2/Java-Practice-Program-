@@ -7,7 +7,7 @@ public class Demo1 {
         // find_common_divisor(100,120);
         // find_greatest_common_divisor(100,120);//gcd//hcf
         // previous_greatest_common_divisor(100,120);
-        // least_common_multiple(3, 10);
+        least_common_multiple(3, 10);
     }
 
     public static void count_of_divisor(int no) {
@@ -74,7 +74,6 @@ public class Demo1 {
                 last = div;
             }
             div++;
-
         }
         System.out.println(last);
     }
@@ -96,6 +95,7 @@ public class Demo1 {
 
     public static void least_common_multiple(int no1, int no2) {
         int max = no1 > no2 ? no1 : no2;
+        System.out.println(max);
         while (true) {
             if (max % no1 == 0 && max % no2 == 0) {
                 System.out.println("LCM IS " + max);
@@ -105,3 +105,8 @@ public class Demo1 {
         }
     }
 }
+
+//10%3==0 && 10%10==0
+// 11%3==0 && 11%10==0
+// 12%3==0 && 12%10==0
+

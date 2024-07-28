@@ -6,7 +6,7 @@ public class Pattern28 {
     private static void pattern8(int n) {
         for(int row=1;row<n*2;row++){
             int totalStarts=row>n ? 2*n-row:row;
-            int noOfSpaces=n-totalColInRow;
+            int noOfSpaces=n-totalStarts;
             for(int spaces=1;spaces<=noOfSpaces;spaces++){
                 System.out.print(" ");
             }
