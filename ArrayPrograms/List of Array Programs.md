@@ -23,3 +23,4 @@
 22) Array Rotation -Left Rotate
 23) Array Rotation -Right Rotate
 24) Finding count of duplicate elements in a given array
+25) Third minimum element in an array

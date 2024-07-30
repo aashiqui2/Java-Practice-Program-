@@ -5,7 +5,7 @@ public class Demo28 {
         int[] a={10,20,30,40,50};
         int left=0;
         int right=a.length-1;
-        int searchItem=40;
+        int searchItem=50;
         int result=Binary_Search(a,left,right,searchItem);
         if(result==-1){
             System.out.println("Not Found");
@@ -26,7 +26,7 @@ public class Demo28 {
                 left= mid+1;
             }
             else{
-                right=mid+1;
+                right=mid-1;
             }
         }
         return -1;
