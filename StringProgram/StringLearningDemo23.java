@@ -1,7 +1,7 @@
 public class StringLearningDemo23 {
     public static void main(String[] args) {
-        String s = "123";
-        String s1 = "456";
+        String s = "3";
+        String s1 = "4";
         char c[] = s.toCharArray();
         char c1[] = s1.toCharArray();
 

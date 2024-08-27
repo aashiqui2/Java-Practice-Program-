@@ -1,59 +1,39 @@
-// find the third minimun
-import java.util.Scanner;
-
 public class Demo30 {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static int countSubsetsWithSum(int[] arr, int targetSum) {
+        int n = arr.length;
+        int[][] dp = new int[n + 1][targetSum + 1];
 
-        System.out.print("Enter the number of elements in the array: ");
-        int n = scanner.nextInt();
-
-        int[] arr = new int[n];
-        System.out.println("Enter the elements of the array:");
-        for (int i = 0; i < n; i++) {
-            arr[i] = scanner.nextInt();
+        // Initialize the dp array
+        for (int i = 0; i <= n; i++) {
+            dp[i][0] = 1; // There is always one way to get 0 sum: with the empty subset
+        }
+        for(int i=0;i<6;i++)
+        {
+            for(int j=0;j<11;j++)
+            {
+                System.out.print(dp[i][j]);
+            }
+            System.out.println();
         }
 
-        // Find the third minimum element
-        Integer thirdMin = findThirdMinimum(arr);
-
-        if (thirdMin == null) {
-            System.out.println("The array does not have a third distinct minimum element.");
-        } else {
-            System.out.println("The third minimum element is: " + thirdMin);
+        // Fill the dp array
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j <= targetSum; j++) {
+                if (arr[i - 1] <= j) {
+                    dp[i][j] = dp[i - 1][j] + dp[i - 1][j - arr[i - 1]];
+                } else {
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
         }
 
-        scanner.close();
+        return dp[n][targetSum];
     }
 
-    public static Integer findThirdMinimum(int[] arr) {
-        if (arr.length < 3) {
-            return null; // Not enough elements for a third minimum
-        }
-
-        Integer first = Integer.MAX_VALUE;
-        Integer second = Integer.MAX_VALUE;
-        Integer third = Integer.MAX_VALUE;
-
-        for (int num : arr) {
-            if (num == first || num == second || num == third) {
-                continue; // Skip duplicates
-            }
-
-            if (num < first) {
-                third = second;
-                second = first;
-                first = num;
-            } else if (num < second) {
-                third = second;
-                second = num;
-            } else if (num < third) {
-                third = num;
-            }
-        }
-
-        // Check if we have found at least three distinct minimums
-        return (third == Integer.MAX_VALUE) ? null : third;
+    public static void main(String[] args) {
+        int[] arr = { 1, 2, 3, 4, 5 };
+        int targetSum = 10;
+        System.out.println("Number of subsets with sum " + targetSum + ": " + countSubsetsWithSum(arr, targetSum));
     }
 }

@@ -1,32 +1,37 @@
-//? Java Program to Remove Duplicates in a Sorted Array
+//?descending order sorting array
 public class Demo11 {
     public static void main(String[] args) {
-        int[] sortedArray = { 1, 1, 2, 2, 3, 4, 4, 5, 5, 6 };
-        int[] uniqueArray = removeDuplicates(sortedArray);
-
-        // Print the unique array
-        for (int i = 0; i < uniqueArray.length; i++) {
-            System.out.print(uniqueArray[i] + " ");
+        int[] array = {5, 2, 7, 3, 1, 8, 4, 6};
+        insertionSortDescending(array);
+        System.out.println("Sorted array in descending order:");
+        for (int num : array) {
+            System.out.print(num + " ");
         }
     }
-
-    public static int[] removeDuplicates(int[] nums) {
-        if (nums.length == 0 || nums.length == 1) {
-            return nums;
-        }
-  
-        int j = 0;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[j] != nums[i]) {
-                j++;
-                nums[j] = nums[i];
+    public static void insertionSortDescending(int[] arr) {
+        int n = arr.length;
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] < key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
             }
+            arr[j + 1] = key; 
         }
-        int[] uniqueArray = new int[j + 1];
-        for (int i = 0; i < uniqueArray.length; i++) {
-            uniqueArray[i] = nums[i];
-        }
-        return uniqueArray;
-    }
+    } 
 }
- 
+
+/* 
+procedure insertionSort(arr):
+    for i = 1 to n-1
+        key = arr[i]
+        j = i-1
+        while j >= 0 and arr[j] > key
+            swap arr[j+1] with arr[j]
+            j = j - 1
+        end while
+    end for
+end function
+
+ */

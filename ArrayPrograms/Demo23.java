@@ -1,40 +1,19 @@
-//? Frequency of each elements in a array
+//! right rotate
 public class Demo23 {
     public static void main(String[] args) {
-        int[] a = { 10,20,30,40,50,10};
-               
-        // String name="GOBI KRISHNAN";
-        // char[] a=name.toCharArray();
-
-        int[] frequency = new int[a.length];
-        for (int i = 0; i < a.length; i++) {
-            int no = a[i];// 10
-            int count = 1;
-            for (int j = i + 1; j < a.length; j++) {// 1
-                if (no == a[j]) {
-                    count++;
-                    frequency[j] = -1;
-                }
+        int[] a = { 1, 2, 3, 4, 5 };
+                //  0  1  2  3  4
+        int k = 1;
+        for(int i=1;i<=k;i++)
+        {
+            int last=a[a.length-1];
+            for(int j=a.length-1;j>0;j--){
+                a[j]=a[j-1];
             }
-            if(frequency[i]!=-1){
-                frequency[i] = count;
-            }
+            a[0]=last;
         }
-        for (int i = 0; i < a.length; i++) {
-            if(frequency[i]>0)
-               System.out.println("The count of " + a[i] + " is " + frequency[i]);
+        for(int i=0;i<a.length;i++){
+            System.out.print(a[i]+" ");
         }
-    
-        int max=0;
-        int position=0;
-        for(int i=0;i<frequency.length;i++){
-            if(frequency[i]>max){
-                max=frequency[i];
-                position=i;
-            }
-        }
-        System.out.println(max+" comes at "+position+" position");
-        System.out.println(a[position]);
-
     }
 }

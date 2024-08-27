@@ -1,31 +1,28 @@
 public class StringLearningDemo11 {
     public static void main(String[] args) {
-        String s1 = "Sunday is Funday";
-        String s2 = "was";
+        String str = "sunday is funday";
+        String str1 = "is";
         boolean contains = false;
-        for (int i = 0; i < s1.length(); i++) {
-            if (s1.charAt(i) == s2.charAt(0)) {
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == str1.charAt(0)) {
                 int count = 0;
-                for (int j = 0; j < s2.length(); j++) {
-                    if (s2.charAt(j) == s1.charAt(i)) {
+                for (int j = 0; j < str1.length(); j++) {
+                    if (str.charAt(i) == str1.charAt(j)) {
                         count++;
                         i++;
                     }
                 }
-                if (count == s2.length()) {
+                if (count == str1.length()) {
                     contains = true;
-                    System.out.println("Yes Contains");
-                    break;
-                } else {
-                    System.out.println("No does not contains");
+                    System.out.println("Yes");
                     break;
                 }
             }
-            else if(contains==false){
-                System.out.println("Does not Contain");
-                break;
-            }
         }
+        if (contains == false) {
+            System.out.println("Does not Contain");
+        }
+
     }
 
 }

@@ -1,39 +1,41 @@
-// ?Bubble sort
+//? delete an element from array
 public class Demo12 {
     public static void main(String[] args) {
-        int[] array = { 5, 2, 7, 3, 1, 8, 4, 6 };
-        bubbleSort(array);
+        int[] array = { 5,1,2,4,3};
+        int elementToDelete = 2;
 
-        // Printing the sorted array
-        System.out.println("Sorted array in ascending order:");
-        // for (int num : array) {
-        // System.out.print(num + " ");
-        // }
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
+        System.out.println("Original array:");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        array = deleteElement(array, elementToDelete);
+
+        System.out.println("Array after deleting element " + elementToDelete + ":");
+        for (int num : array) {
+            System.out.print(num + " ");
         }
     }
 
-    public static void bubbleSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i<n; i++) {
-            for (int j = 0; j <n-1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
+    public static int[] deleteElement(int[] arr, int element) {
+        int[] newArray = new int[arr.length - 1];
+        int index = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == element) {
+                index = i;
+                break;
             }
         }
+        if (index == -1) {
+            return arr;
+        }
+        int j=0;
+        for (int i = 0; i < arr.length; i++) {
+            if (i != index) {
+                newArray[j++] = arr[i];
+            }
+        }
+        return newArray;
     }
 }
-/* this is also applicable
-   for (let i = 0; i < arr.length; i++) {
-    for (let j = 1; j < arr.length; j++) {
-      if (arr[j - 1] > arr[i]) {
-        temp = arr[j - 1];
-        arr[j - 1] = arr[i];
-        arr[i] = temp;
-      }
-    }
- */

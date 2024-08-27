@@ -1,34 +1,59 @@
-//! Binary search
+// find the third minimun
+import java.util.Scanner;
 
 public class Demo28 {
+
     public static void main(String[] args) {
-        int[] a={10,20,30,40,50};
-        int left=0;
-        int right=a.length-1;
-        int searchItem=50;
-        int result=Binary_Search(a,left,right,searchItem);
-        if(result==-1){
-            System.out.println("Not Found");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements in the array: ");
+        int n = scanner.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
         }
-        else{
-            System.out.println("Found");
+
+        // Find the third minimum element
+        Integer thirdMin = findThirdMinimum(arr);
+
+        if (thirdMin == null) {
+            System.out.println("The array does not have a third distinct minimum element.");
+        } else {
+            System.out.println("The third minimum element is: " + thirdMin);
         }
-          
+
+        scanner.close();
     }
-    public static int Binary_Search(int[] a,int left,int right,int searchItem){
-        while(left<=right)
-        {
-            int mid=(left+right)/2;
-            if(a[mid]==searchItem){
-                return mid;
+
+    public static Integer findThirdMinimum(int[] arr) {
+        if (arr.length < 3) {
+            return null; // Not enough elements for a third minimum
+        }
+
+        Integer first = Integer.MAX_VALUE;
+        Integer second = Integer.MAX_VALUE;
+        Integer third = Integer.MAX_VALUE;
+
+        for (int num : arr) {
+            if (num == first || num == second || num == third) {
+                continue; // Skip duplicates
             }
-            else if(a[mid]<searchItem){
-                left= mid+1;
-            }
-            else{
-                right=mid-1;
+
+            if (num < first) {
+                third = second;
+                second = first;
+                first = num;
+            } else if (num < second) {
+                third = second;
+                second = num;
+            } else if (num < third) {
+                third = num;
             }
         }
-        return -1;
+
+        // Check if we have found at least three distinct minimums
+        return (third == Integer.MAX_VALUE) ? null : third;
     }
 }

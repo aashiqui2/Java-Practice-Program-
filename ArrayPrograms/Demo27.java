@@ -1,20 +1,20 @@
-//! Linear search
-import java.util.Scanner;
+
 public class Demo27 {
     public static void main(String[] args) {
-        int[] a={10,20,30,40,50};
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the element to search");
-        int k=sc.nextInt();
-        for(int i=0;i<a.length;i++){
-            if(k==a[i]){
-                System.out.println("Found");
+        int[] arr={1,2,3,4,5};
+        if(arr.length==0){
+            return;
+        }
+        long sum=0,max=arr[0],min=arr[0];
+        for(int i=0;i<arr.length;i++){
+            sum+=arr[i];
+            if(arr[i]<min){
+                min=arr[i];
             }
-            else{
-                System.out.println("Not found");
+            if(arr[i]>max){
+                max=arr[i];
             }
         }
-        sc.close();
+        System.out.printf("%d %d",(sum-max),(sum-min));
     }
-    
 }

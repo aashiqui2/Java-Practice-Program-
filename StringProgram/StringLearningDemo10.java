@@ -17,21 +17,16 @@ import java.util.regex.Pattern;
 
 public class StringLearningDemo10 {
     public static void main(String[] args) {
-        // Reading input from the console
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         scanner.close();
 
-        // Define the regular expression pattern for tokens
         String pattern = "[A-Za-z]+";
 
-        // Create a Pattern object
         Pattern r = Pattern.compile(pattern);
 
-        // Create matcher object
         Matcher m = r.matcher(input);
 
-        // Using a StringBuilder to store the tokens
         StringBuilder tokens = new StringBuilder();
         int tokenCount = 0;
 

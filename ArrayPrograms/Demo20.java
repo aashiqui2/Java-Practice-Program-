@@ -1,23 +1,26 @@
-//? storing negative elements in a new array
+//?Storing array reversely first-->last, second-->Third, Third-->third
 public class Demo20 {
     public static void main(String[] args) {
-        int[] a={-10,20,30,40,-50,-60};
-        int negative=0;
+        int[] a={10,20,30,40,50};
+              // 0  1  2  3  4
+        System.out.println("Before Swapping");
         for(int i=0;i<a.length;i++){
-            if(a[i]<0){
-                negative++;
-            }
+            System.out.print(a[i]+" ");
         }
-        int[] b=new int[negative];
-        int j=0;
+        // temp=a[1];
+        // a[1]=a[3];
+        // a[3]=temp;
+        int j=a.length-1;
+        for(int i=0;i<a.length/2;i++){
+           int temp=a[i];
+            a[i]=a[j];
+            a[j]=temp;
+            j--;
+        }
+        System.out.println();
+        System.out.println("After Swapping");
         for(int i=0;i<a.length;i++){
-            if(a[i]<0){
-                b[j]=a[i];
-                j++;
-            }
-        }
-        for(int i=0;i<b.length;i++){
-            System.out.print(b[i]+" ");
+            System.out.print(a[i]+" ");
         }
     }
 }

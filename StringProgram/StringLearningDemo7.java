@@ -1,4 +1,4 @@
-// ? upper to lower string or viceversa
+// ?even index uppercase
 
 public class StringLearningDemo7 {
     public static void main(String[] args) {

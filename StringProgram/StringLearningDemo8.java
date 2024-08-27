@@ -3,7 +3,7 @@ public class StringLearningDemo8 {
     public static void main(String[] args) {
 
         String  s="programming";//PrOgRaMmInG
-        System.out.println(s.substring(0,1).toUpperCase()+s.substring(1));
+       // System.out.println(s.substring(0,1).toUpperCase()+s.substring(1));
         // ? even uppercase
         for(int i=0;i<s.length();i++)
         {

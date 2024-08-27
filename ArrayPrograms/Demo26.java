@@ -1,33 +1,34 @@
-//! Finding count of duplicate elements in a given array
+//! Binary search
+
 public class Demo26 {
     public static void main(String[] args) {
-        int[] a = {10,20,30,40,10};
-        boolean[] b=new boolean[a.length];
-        int duplicateCount=0;
-        for(int i=0;i<a.length;i++){
-            if(!b[i]){
-                int count=1;
-                for(int j=i+1;j<a.length;j++)
-                {
-                    if(a[i]==a[j]){
-                        count++;
-                        b[j]=true;
-                    }
-                }
-                if(count>1){
-                    duplicateCount++;
-                }
+        int[] a={10,20,30,40,50};
+        int left=0;
+        int right=a.length-1;
+        int searchItem=50;
+        int result=Binary_Search(a,left,right,searchItem);
+        if(result==-1){
+            System.out.println("Not Found");
+        }
+        else{
+            System.out.println("Found");
+        }
+          
+    }
+    public static int Binary_Search(int[] a,int left,int right,int searchItem){
+        while(left<=right)
+        {
+            int mid=(left+right)/2;
+            if(a[mid]==searchItem){
+                return mid;
+            }
+            else if(a[mid]<searchItem){
+                left= mid+1;
+            }
+            else{
+                right=mid-1;
             }
         }
-        for(int i=0;i<b.length;i++){
-            System.out.print(b[i]+"  ");
-        }
-        System.out.println();
-        for(int i=0;i<b.length;i++){
-            System.out.print(a[i]+"     ");
-        }
-        System.out.println();
-        System.out.println("The duplicate Element Count is "+ duplicateCount);
+        return -1;
     }
 }
-
