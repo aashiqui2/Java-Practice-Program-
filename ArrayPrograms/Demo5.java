@@ -1,4 +1,6 @@
 //?  second minimum element in an array
+
+
 public class Demo5 {
     public static void main(String[] args) {
         int arr[] = { 10, 30, 20, 40, 50 };
@@ -15,7 +17,7 @@ public class Demo5 {
     public static int FirstMinimum(int[] arr, int n) {
         int small = arr[0];
         for (int i = 1; i < arr.length; i++) {
-            if (small > arr[i]) {
+            if (arr[i]<small) {
                 small = arr[i];
             }
         }
@@ -66,13 +68,13 @@ public class Demo5 {
     }
 
     public static int SecMaximum(int[] arr, int n) {
-        int first =arr[0], second = arr[0];
+        int first =Integer.MIN_VALUE, second = Integer.MIN_VALUE;
 
         for (int i = 0; i < n; i++) {
             if (arr[i] > first) {
                 second = first;
                 first = arr[i];
-            } else if (arr[i] > second && arr[i] != first) {
+            } else if (arr[i] > second ) {
                 second = arr[i];
             }
         }

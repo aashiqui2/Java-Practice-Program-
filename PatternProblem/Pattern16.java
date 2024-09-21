@@ -10,7 +10,6 @@ public class Pattern16 {
                 System.out.print("*");
             }
             System.out.println();
-
         }
         for(int i=n;i>=1;i--)
         {
