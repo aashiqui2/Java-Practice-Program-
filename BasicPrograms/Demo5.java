@@ -7,7 +7,7 @@ public class Demo5 {
         print_1_8_27_64(3);
         print_1_4_9_16(2);
         print_1_4_27_256(1);
-        square_root(16);
+        square_root(25);
     }
 
     public static void find_fact(int no) {

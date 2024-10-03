@@ -4,10 +4,10 @@ public class Demo1 {
         // count_of_divisor(120);
         // divisible_of_3_and_5();
         // isprime(3);
-        // find_common_divisor(100,120);
-        // find_greatest_common_divisor(100,120);//gcd//hcf
+        find_common_divisor(4,12);
+        // find_greatest_common_divisor(15,30);//gcd//hcf
         // previous_greatest_common_divisor(100,120);
-        least_common_multiple(3, 10);
+        // least_common_multiple(3, 10);
     }
 
     public static void count_of_divisor(int no) {
@@ -49,14 +49,14 @@ public class Demo1 {
     }
 
     public static void find_common_divisor(int no1, int no2) {
-        int div = 2;
+        int div = 1;
         // int small=0;
         // if(no1<no2){
         // small=no1;
         // }
         // ! using ternary
         int small = (no1 < no2) ? no1 : no2;
-        while (div <= small / 2) {
+        while (div <= small ) {
             if (no1 % div == 0 && no2 % div == 0) {
                 System.out.print(div + " ");
             }
