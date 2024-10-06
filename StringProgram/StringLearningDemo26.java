@@ -1,6 +1,7 @@
+//! Occurence of a character
 public class StringLearningDemo26 {
     public static void main(String[] args) {
-        String s = "moeem";
+        String s = "aabbcd";
         boolean b[] = new boolean[s.length()];
         for (int i = 0; i < s.length(); i++) {
             if (!b[i]) {
